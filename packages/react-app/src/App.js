@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Contract } from "@ethersproject/contracts";
 import { Web3Provider } from "@ethersproject/providers";
-import { useQuery } from "@apollo/react-hooks";
 
 import { Body, Button, Header } from "./components";
 import useWeb3Modal from "./hooks/useWeb3Modal";
 
 import { addresses, abis } from "@project/contracts";
-import GET_TRANSFERS from "./graphql/subgraph";
 
 // Put your address here
 const OWNER_ADDRESS = "";
@@ -22,7 +20,7 @@ const amuletsToMint = [
 
 async function mintAmulets() {
   const provider = new Web3Provider(window.ethereum);
-  const amulet = new Contract(addresses.amulet, abis.amulet, provider);
+  const amulet = new Contract(addresses.amulet, abis.amulet, provider.getSigner());
 
   const res = await amulet.mintAndRevealAll(
     amuletsToMint.map((data) => ({
@@ -85,14 +83,7 @@ function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
 }
 
 function App() {
-  const { loading, error, data } = useQuery(GET_TRANSFERS);
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
-
-  React.useEffect(() => {
-    if (!loading && !error && data && data.transfers) {
-      console.log({ transfers: data.transfers });
-    }
-  }, [loading, error, data]);
 
   return (
     <div>
