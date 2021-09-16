@@ -15,28 +15,8 @@ const OFFSET_URL = "";
 
 const amuletsToMint = [
   {
-    title: "Karma",
-    amulet: `WHAT GOES AROUND COMES AROUND`,
-  },
-  {
-    title: "One",
-    amulet: `"Oh please God help me" – Metallica`,
-  },
-  {
-    title: "The customer is always right",
-    amulet: `The customer is always right`,
-  },
-  {
-    title: "Shakespeare",
-    amulet: `Bloody thou art; bloody will be thy end.`,
-  },
-  {
-    title: "The famous amulet",
-    amulet: `The famous amulet.`,
-  },
-  {
-    title: "The omnipresent amulet",
-    amulet: `Omnipresent`,
+    title: "",
+    amulet: "",
   },
 ];
 
