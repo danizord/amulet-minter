@@ -10,7 +10,7 @@ import { addresses, abis } from "@project/contracts";
 import GET_TRANSFERS from "./graphql/subgraph";
 
 // Put your address here
-const OWNER_ADDRESS = "0xaa55b756Cc30EebB2728Fe5d43d334625e0A0b4c";
+const OWNER_ADDRESS = "";
 const OFFSET_URL = "";
 
 const amuletsToMint = [
